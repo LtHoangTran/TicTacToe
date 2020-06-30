@@ -20,6 +20,7 @@ def spaceIsFree(position):
     return board[position] == ' '           # check if the space/cell is still free (if yes, will return true)
 
 def printSmallBoard():
+    print('Small board size has been selected')
     print(board[1] + '|' + board[2] + '|' + board[3])
     print('-----')
     print(board[4] + '|' + board[5] + '|' + board[6])
@@ -27,6 +28,7 @@ def printSmallBoard():
     print(board[7] + '|' + board[8] + '|' + board[9])
 
 def printLargeBoard():
+    print('Large board size has been selected')
     print('   |   |   ')
     print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |   ')
@@ -72,7 +74,7 @@ def playerMove():
                     canRun = False
                     fillInCell(playerSymbol, move)
                 else:
-                    print('The cell has been occupied. Please choose another.')
+                    print('The cell has been occupied. Please choose another.\n')
             else:
                 print('Please input a number between 1 and 9.\n')
         except:
@@ -85,7 +87,6 @@ def compRandomMove():
     # the 0-th index of the board is ignored in this script
     possibleMoves = [x for x, letter in enumerate(board) if letter == ' ' and x != 0]
     move = random.choice(possibleMoves)
-
     return move
 
     
@@ -171,10 +172,9 @@ def initiateGame():
     print('Welcome to a Tic Tac Toe game.')
     print('Please input your name: ')
     name = input()
-    print('Please select your symbol, X or O?')
-    playerSymbol = input()
+    
     while playerSymbol.upper() not in ['X', 'O']:
-        input('Please input the correct symbol, X or O.')
+        print('Please input the correct symbol, X or O.')
         playerSymbol = input()
 
     # set symbol for the computer    
